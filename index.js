@@ -15,7 +15,7 @@ var unoconv = exports = module.exports = {};
 * @param {Function} callback
 * @api public
 */
-unoconv.convert = function(file, outputFormat, options, callback) {
+unoconv.convert = function(file, outputFormat, pr, options, callback) {
     var self = this,
         args,
         bin = 'unoconv',
@@ -32,6 +32,10 @@ unoconv.convert = function(file, outputFormat, options, callback) {
         '-f' + outputFormat,
         '--stdout'
     ];
+    
+    if (pr) {
+        args.push('-e', 'PageRange=' + options.pr)
+    }
 
     if (options && options.port) {
         args.push('-p' + options.port)
