@@ -34,7 +34,7 @@ unoconv.convert = function(file, outputFormat, pr, options, callback) {
     ];
     
     if (pr) {
-        args.push('-e', 'PageRange=' + options.pr)
+        args.push('-e', 'PageRange=' + pr)
     }
 
     if (options && options.port) {
